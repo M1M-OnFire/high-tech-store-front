@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
+  messageError: string = "";
 
   constructor() { }
 
@@ -16,7 +17,6 @@ export class ConnexionComponent implements OnInit {
   connexion(connexionForm: any){
     let data = connexionForm.value;
     console.log(data);
-    
   }
 
 }
