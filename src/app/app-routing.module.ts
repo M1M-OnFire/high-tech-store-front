@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:"pc-portable", component: PcPortableComponent},
   {path:"pc-bureau", component: PcBureauComponent},
   {path:"pc-accessoires", component: PcAccessoiresComponent},
-  {path:"pc-connexion", component: ConnexionComponent},
+  {path:"connexion", component: ConnexionComponent},
 ];
 
 @NgModule({

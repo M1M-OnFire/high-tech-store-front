@@ -9,6 +9,7 @@ import { PcPortableComponent } from './components/ordinateur/pc-portable/pc-port
 import { PcBureauComponent } from './components/ordinateur/pc-bureau/pc-bureau.component';
 import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/pc-accessoires.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

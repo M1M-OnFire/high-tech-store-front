@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  connexion(connexionForm: any){
+    let data = connexionForm.value;
+    console.log(data);
+    
   }
 
 }
