@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Articles } from 'src/app/models/Articles';
+import { OrdinateursService } from 'src/app/services/ordinateurs.service';
 
 @Component({
   selector: 'app-pc-portable',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PcPortableComponent implements OnInit {
 
-  constructor() { }
+  articles: Array<Articles> = [];
+
+  constructor(private pcPortableService: OrdinateursService) { }
 
   ngOnInit(): void {
+    this.pcPortableService.getAll().subscribe(res => {
+      this.articles = res;
+    });
   }
 
 }

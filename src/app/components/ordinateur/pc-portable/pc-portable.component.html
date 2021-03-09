@@ -1,1 +1,12 @@
-<p>pc-portable works!</p>
+<div *ngFor="let elt of articles" class="mt-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+        <div class="card" style="width: 18rem;">
+            <img src="{{elt.photo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{elt.marque}}</h5>
+                <p class="card-text">{{elt.description}}</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+    </div>
+</div>

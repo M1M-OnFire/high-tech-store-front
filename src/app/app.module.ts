@@ -10,6 +10,7 @@ import { PcBureauComponent } from './components/ordinateur/pc-bureau/pc-bureau.c
 import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/pc-accessoires.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
