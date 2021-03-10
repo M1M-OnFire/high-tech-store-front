@@ -16,4 +16,8 @@ export class OrdinateursService {
   getAll(): Observable<Array<Articles>> {
     return this.http.get<Array<Articles>>(this.url);
   }
+
+  get(id: string): Observable<Articles> {
+    return this.http.get<Articles>(this.url + "/" + id);
+  }
 }

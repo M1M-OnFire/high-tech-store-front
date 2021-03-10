@@ -11,6 +11,9 @@ import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/p
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PanierComponent } from './components/panier/panier.component';
+import { ProduitComponent } from './components/produit/produit.component';
+import { ProduitDetailComponent } from './components/produit-detail/produit-detail.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HttpClientModule } from '@angular/common/http';
     PcPortableComponent,
     PcBureauComponent,
     PcAccessoiresComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    PanierComponent,
+    ProduitComponent,
+    ProduitDetailComponent
   ],
   imports: [
     BrowserModule,

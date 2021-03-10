@@ -3,4 +3,6 @@ export interface Articles {
     marque?: string;
     description?: string;
     photo?: string;
+    libelle?:string;
+    prix?:string;
 }
