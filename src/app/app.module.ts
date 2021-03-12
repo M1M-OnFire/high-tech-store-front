@@ -11,6 +11,7 @@ import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/p
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     PcPortableComponent,
     PcBureauComponent,
     PcAccessoiresComponent,
-    ConnexionComponent
+    ConnexionComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { PcBureauComponent } from './components/ordinateur/pc-bureau/pc-bureau.c
 import { PcPortableComponent } from './components/ordinateur/pc-portable/pc-portable.component';
 import { AuthentificationGuard } from './guards/authentification.guard';
 import { NoAuthentificationGuard } from './guards/no-authentification.guard';
+import {FormComponent} from './components/form/form.component';
 
 const routes: Routes = [
   {path:"", component: ConnexionComponent, canActivate:[NoAuthentificationGuard]},
@@ -15,6 +16,8 @@ const routes: Routes = [
   {path:"pc-bureau", component: PcBureauComponent, canActivate:[AuthentificationGuard]},
   {path:"pc-accessoires", component: PcAccessoiresComponent, canActivate: [AuthentificationGuard]},
   {path:"connexion", component: ConnexionComponent, canActivate: [NoAuthentificationGuard]},
+  {path:"form", component: FormComponent, canActivate: [NoAuthentificationGuard]},
+
 ];
 
 @NgModule({
