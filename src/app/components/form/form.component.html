@@ -1,38 +1,154 @@
-<p>form works!</p>
-<table>
-  <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
-  </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-</table>
+<div class="container">
+  <div class="border">
+    <button class="btn btn-md btn-outline-primary" (click)="open(content)">
+      <i class="fa fa-plus"></i>Ajout Article</button>
+  </div>
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Article</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let article of article">
+      <td><span>{{article.id}}</span></td>
+      <td><span>{{article.name}}</span></td>
+      <td>
+        <button class="btn btn-sm btn-info"(click)="openDetails(contentDetails, article)">
+          <i class="fa fa-search"></i>Details</button>
+        <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, article)">
+          <i class="fa fa-edit"></i>Edit</button>
+        <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, article)">
+          <i class="fa fa-remove"></i>Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title1">Ajout Article</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label for="name">name</label>
+        <div class="input-group">
+          <input id="name" name="name" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Description">Description</label>
+        <div class="input-group">
+          <input id="description" name="description" class="form-control" readonly>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Prix">Prix</label>
+        <div class="input-group">
+          <input id="prix" name="prix" class="form-control"readonly>
+        </div>
+      </div>
+      <div class="border text-center">
+        <button data-dismiss="modal" class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fermer</button>
+  </div>
+</ng-template>
+
+
+<ng-template #contentDetails let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Detail Article </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="aname">Name</label>
+        <div class="input-group">
+          <input id="aname" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ddescription">Description</label>
+        <div class="input-group">
+          <input id="ddescription" class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="prix">Prix</label>
+        <div class="input-group">
+          <input id="pprix" class="form-control">
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fermer</button>
+  </div>
+</ng-template>
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title2">Edit Article </h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form [formGroup]="editForm" novalidate>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <div class="input-group">
+            <input formControlName="name" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <div class="input-group">
+            <input formControlName="description" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="prix">Prix</label>
+          <div class="input-group">
+            <input formControlName="lastname" class="form-control">
+          </div>
+        </div>
+        <div class="border text-center"> <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save</button> </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fermer</button>
+  </div>
+</ng-template>
+
+<ng-template #contentDelete let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Supprimer Article</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h2>On le supprime ?</h2>
+    <div class="border text-center">
+      <button data-dismiss="modal" class="btn btn-danger" (click)="onDelete()">oui, Supprime moi!</button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+  </div>
+</ng-template>
