@@ -1,4 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+}
 
 @media (min-width: 1020px) {
     .grid-wrapper {
@@ -27,3 +36,4 @@
             grid-auto-rows: minmax(100px, auto);
         }
 }
+
