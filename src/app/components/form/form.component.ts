@@ -102,7 +102,7 @@ export class FormComponent implements OnInit {
     });
   }
   onSave() {
-    const editURL = 'http://localhost:5555/Articles/' + this.editForm.value.id + '/edit';
+    const editURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items' + this.editForm.value.id;
     this.http.put(editURL, this.editForm.value)
       .subscribe((results) => {
         this.ngOnInit();
@@ -119,7 +119,7 @@ export class FormComponent implements OnInit {
   }
 
   onDelete() {
-    const deleteURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items/' + this.deleteId + '/delete';
+    const deleteURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items/' + this.deleteId;
     this.http.delete(deleteURL)
       .subscribe((results) => {
         this.ngOnInit();
