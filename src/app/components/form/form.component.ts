@@ -22,15 +22,17 @@ export  class Item {
 })
 
 export class FormComponent implements OnInit{
+
+
+  constructor( private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder) { }
   item: Item[];
   closeResult: string;
   marque: any;
   url = 'http://localhost:8080/rest_shop_war_exploded/rest/items/';
   editForm: FormGroup;
   private deleteId: number;
-
-
-  constructor( private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder) { }
+  key:string = 'prix';
+  reverse:boolean = false;
   ngOnInit(): void {
     this.getItems();
     this.editForm = this.fb.group({
@@ -135,5 +137,9 @@ export class FormComponent implements OnInit{
         return res.marque.toLocaleLowerCase().match(this.marque.toLocaleLowerCase());
       });
     }
+  }
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }

@@ -12,13 +12,13 @@
     <thead>
 
     <tr>
-      <th>Marque</th>
-      <th>Libelle</th>
-      <th>Prix</th>
+      <th (click)="sort('Marque')">Marque&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('Libelle')">Libelle&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="sort('prix')"> Prix&nbsp; <i class="fa fa-sort"></i></th>
      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of item">
+    <tr *ngFor="let item of item | orderBy: key: reverse">
 
       <td><span>{{item.marque}}</span></td>
       <td><span>{{item.libelle}}</span></td>
