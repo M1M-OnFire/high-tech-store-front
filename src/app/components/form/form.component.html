@@ -1,11 +1,16 @@
 <meta charset="utf-8"/>
 <div class="container">
+<nav class="navbar">
+  <input class="form-control" type="text" name="marque" [(ngModel)]="marque" (ngModelChange)="Search()"
+  placeholder="Entrer le nom de la marque">
+</nav>
   <div class="border">
     <button class="btn btn-md btn-outline-primary" (click)="open(content)">
       <i class="fa fa-plus"></i>Ajout Article</button>
   </div>
   <table class="table table-bordered table-striped">
     <thead>
+
     <tr>
       <th>Marque</th>
       <th>Libelle</th>
@@ -14,6 +19,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of item">
+
       <td><span>{{item.marque}}</span></td>
       <td><span>{{item.libelle}}</span></td>
       <td><span>{{item.prix}}</span></td>

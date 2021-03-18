@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
+import { FilterPipe } from './components/filter.pipe';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {Ng2OrderModule} from 'ng2-order-pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ConnexionComponent,
     FormComponent,
     FooterComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,10 @@ import { FooterComponent } from './components/footer/footer.component';
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

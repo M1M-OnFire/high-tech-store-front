@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Items} from '../../models/Items';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
 
 export  class Item {
   constructor(
@@ -19,19 +20,17 @@ export  class Item {
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+
+export class FormComponent implements OnInit{
   item: Item[];
   closeResult: string;
+  marque: any;
   url = 'http://localhost:8080/rest_shop_war_exploded/rest/items/';
   editForm: FormGroup;
   private deleteId: number;
 
 
-  constructor(
-    private http: HttpClient,
-    private modalService: NgbModal,
-    private fb: FormBuilder
-  ) { }
+  constructor( private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder) { }
   ngOnInit(): void {
     this.getItems();
     this.editForm = this.fb.group({
@@ -39,6 +38,7 @@ export class FormComponent implements OnInit {
       libelle: [''],
       prix: ['']
     });
+
   }
 
   getAll(): Observable<Array<Items>> {
@@ -125,5 +125,15 @@ export class FormComponent implements OnInit {
         this.ngOnInit();
         this.modalService.dismissAll();
       });
+  }
+
+  Search(){
+    if (this.marque == ""){
+      this.ngOnInit();
+    }else{
+      this.item = this.item.filter(res => {
+        return res.marque.toLocaleLowerCase().match(this.marque.toLocaleLowerCase());
+      });
+    }
   }
 }
