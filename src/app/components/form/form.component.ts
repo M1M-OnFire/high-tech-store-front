@@ -85,8 +85,8 @@ export class FormComponent implements OnInit {
       backdrop: 'static',
       size: 'lg'
     });
-    document.getElementById('aname').setAttribute('value', item.marque);
-    document.getElementById('ddescription').setAttribute('value', item.libelle);
+    document.getElementById('amarque').setAttribute('value', item.marque);
+    document.getElementById('dlibelle').setAttribute('value', item.libelle);
     document.getElementById('pprix').setAttribute('value', String(item.prix));
   }
   openEdit(targetModal, item: Item) {
