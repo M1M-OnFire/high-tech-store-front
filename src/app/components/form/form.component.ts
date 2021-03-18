@@ -33,6 +33,7 @@ export class FormComponent implements OnInit{
   private deleteId: number;
   key:string = 'prix';
   reverse:boolean = false;
+  p: number=1;
   ngOnInit(): void {
     this.getItems();
     this.editForm = this.fb.group({
