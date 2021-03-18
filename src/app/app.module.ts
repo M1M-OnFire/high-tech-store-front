@@ -9,7 +9,7 @@ import { PcPortableComponent } from './components/ordinateur/pc-portable/pc-port
 import { PcBureauComponent } from './components/ordinateur/pc-bureau/pc-bureau.component';
 import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/pc-accessoires.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './components/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -25,7 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PcAccessoiresComponent,
     ConnexionComponent,
     FormComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

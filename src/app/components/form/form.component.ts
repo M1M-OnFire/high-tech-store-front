@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Articles} from '../../models/Articles';
+import {Items} from '../../models/Items';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
 
-export  class Article {
+export  class Item {
   constructor(
     public id: number,
-    public name: string,
-    public description: string,
+    public marque: string,
+    public libelle: string,
     public prix: number,
+    public photo: string
   ) {}
 }
 @Component({
@@ -19,11 +20,12 @@ export  class Article {
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  article: Article[];
+  item: Item[];
   closeResult: string;
-  url = 'http://localhost:5555/Articles/';
+  url = 'http://localhost:8080/rest_shop_war_exploded/rest/items/';
   editForm: FormGroup;
   private deleteId: number;
+
 
   constructor(
     private http: HttpClient,
@@ -31,23 +33,23 @@ export class FormComponent implements OnInit {
     private fb: FormBuilder
   ) { }
   ngOnInit(): void {
-    this.getArticles();
+    this.getItems();
     this.editForm = this.fb.group({
-      name: [''],
-      description: [''],
+      marque: [''],
+      libelle: [''],
       prix: ['']
     });
   }
 
-  getAll(): Observable<Array<Articles>> {
-    return this.http.get<Array<Articles>>(this.url);
+  getAll(): Observable<Array<Items>> {
+    return this.http.get<Array<Items>>(this.url);
   }
 
-  getArticles(){
-    this.http.get<any>('http://localhost:5555/Articles/').subscribe(
+  getItems(){
+    this.http.get<any>('http://localhost:8080/rest_shop_war_exploded/rest/items/').subscribe(
       response => {
         console.log(response);
-        this.article = response;
+        this.item = response;
       }
     );
   }
@@ -70,33 +72,33 @@ export class FormComponent implements OnInit {
     }
   }
   onSubmit(f: NgForm) {
-    const url = 'http://localhost:5555/Articles/addArticle';
+    const url = 'http://localhost:8080/rest_shop_war_exploded/rest/items';
     this.http.post(url, f.value)
       .subscribe((result) => {
         this.ngOnInit();
       });
     this.modalService.dismissAll();
   }
-  openDetails(targetModal, article: Article) {
+  openDetails(targetModal, item: Item) {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
       size: 'lg'
     });
-    document.getElementById('aname').setAttribute('value', article.name);
-    document.getElementById('ddescription').setAttribute('value', article.description);
-    document.getElementById('pprix').setAttribute('value', String(article.prix));
+    document.getElementById('aname').setAttribute('value', item.marque);
+    document.getElementById('ddescription').setAttribute('value', item.libelle);
+    document.getElementById('pprix').setAttribute('value', String(item.prix));
   }
-  openEdit(targetModal, article: Article) {
+  openEdit(targetModal, item: Item) {
     this.modalService.open(targetModal, {
       centered: true,
       backdrop: 'static',
       size: 'lg'
     });
     this.editForm.patchValue( {
-      name: article.name,
-      description: article.description,
-      prix: article.prix
+      marque: item.marque,
+      libelle: item.libelle,
+      prix: item.prix
     });
   }
   onSave() {
@@ -108,8 +110,8 @@ export class FormComponent implements OnInit {
       });
   }
 
-  openDelete(targetModal, article: Article) {
-    this.deleteId = article.id;
+  openDelete(targetModal, item: Item) {
+    this.deleteId = item.id;
     this.modalService.open(targetModal, {
       backdrop: 'static',
       size: 'lg'
@@ -117,7 +119,7 @@ export class FormComponent implements OnInit {
   }
 
   onDelete() {
-    const deleteURL = 'http://localhost:8888/Articles/' + this.deleteId + '/delete';
+    const deleteURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items/' + this.deleteId + '/delete';
     this.http.delete(deleteURL)
       .subscribe((results) => {
         this.ngOnInit();

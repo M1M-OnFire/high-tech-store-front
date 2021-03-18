@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Articles } from 'src/app/models/Articles';
+import { Items } from 'src/app/models/Items';
 import { OrdinateursService } from 'src/app/services/ordinateurs.service';
 
 @Component({
@@ -9,13 +9,13 @@ import { OrdinateursService } from 'src/app/services/ordinateurs.service';
 })
 export class PcPortableComponent implements OnInit {
 
-  articles: Array<Articles> = [];
+  items: Array<Items> = [];
 
   constructor(private pcPortableService: OrdinateursService) { }
 
   ngOnInit(): void {
     this.pcPortableService.getAll().subscribe(res => {
-      this.articles = res;
+      this.items = res;
     });
   }
 

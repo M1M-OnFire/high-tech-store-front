@@ -6,22 +6,22 @@
   <table class="table table-bordered table-striped">
     <thead>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Article</th>
-
-    </tr>
+      <th>Marque</th>
+      <th>Libelle</th>
+      <th>Prix</th>
+     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let article of article">
-      <td><span>{{article.id}}</span></td>
-      <td><span>{{article.name}}</span></td>
-      <td>
-        <button class="btn btn-sm btn-info"(click)="openDetails(contentDetails, article)">
+    <tr *ngFor="let item of item">
+      <td><span>{{item.marque}}</span></td>
+      <td><span>{{item.libelle}}</span></td>
+      <td><span>{{item.prix}}</span></td>
+       <td>
+        <button class="btn btn-sm btn-info"(click)="openDetails(contentDetails, item)">
           <i class="fa fa-search"></i>Details</button>
-        <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, article)">
+        <button class="btn btn-sm btn-warning" (click)="openEdit(contentEdit, item)">
           <i class="fa fa-edit"></i>Edit</button>
-        <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, article)">
+        <button class="btn btn-sm btn-danger" (click)="openDelete(contentDelete, item)">
           <i class="fa fa-remove"></i>Delete</button>
       </td>
     </tr>
@@ -39,21 +39,21 @@
   <div class="modal-body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <label for="name">name</label>
+        <label for="marque">Marque</label>
         <div class="input-group">
-          <input id="name" name="name" class="form-control" readonly>
+          <input id="marque" name="marque" class="form-control"  >
         </div>
       </div>
       <div class="form-group">
-        <label for="Description">Description</label>
+        <label for="libelle">Description</label>
         <div class="input-group">
-          <input id="description" name="description" class="form-control" readonly>
+          <input id="libelle" name="libelle" class="form-control"  >
         </div>
       </div>
       <div class="form-group">
         <label for="Prix">Prix</label>
         <div class="input-group">
-          <input id="prix" name="prix" class="form-control"readonly>
+          <input id="prix" name="prix" class="form-control" >
         </div>
       </div>
       <div class="border text-center">
@@ -77,15 +77,15 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-        <label for="aname">Name</label>
+        <label for="amarque">Marque</label>
         <div class="input-group">
-          <input id="aname" class="form-control">
+          <input id="amarque" class="form-control">
         </div>
       </div>
       <div class="form-group">
-        <label for="ddescription">Description</label>
+        <label for="dlibelle">Libelle</label>
         <div class="input-group">
-          <input id="ddescription" class="form-control">
+          <input id="dlibelle" class="form-control">
         </div>
       </div>
       <div class="form-group">
@@ -111,21 +111,21 @@
   <div class="modal-body">
       <form [formGroup]="editForm" novalidate>
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="marque">Marque</label>
           <div class="input-group">
-            <input formControlName="name" class="form-control">
+            <input formControlName="marque" class="form-control">
           </div>
         </div>
         <div class="form-group">
-          <label for="description">Description</label>
+          <label for="libelle">Description</label>
           <div class="input-group">
-            <input formControlName="description" class="form-control">
+            <input formControlName="libelle" class="form-control">
           </div>
         </div>
         <div class="form-group">
           <label for="prix">Prix</label>
           <div class="input-group">
-            <input formControlName="lastname" class="form-control">
+            <input formControlName="prix" class="form-control">
           </div>
         </div>
         <div class="border text-center"> <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save</button> </div>

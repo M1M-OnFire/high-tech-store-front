@@ -1,8 +1,8 @@
 import {Injectable, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
-import { Articles } from '../models/Articles';
+import { Items } from '../models/Items';
 import { HttpClient } from '@angular/common/http';
-import {Article} from '../components/form/form.component';
+import {Item} from '../components/form/form.component';
 
 
 
@@ -10,7 +10,7 @@ import {Article} from '../components/form/form.component';
   providedIn: 'root'
 })
 export class OrdinateursService implements OnInit{
-  article: Article[];
+  item: Items[];
   url = 'http://localhost:5555/Articles/';
 
   constructor(private http: HttpClient) { }
@@ -18,15 +18,15 @@ export class OrdinateursService implements OnInit{
     this.getArticles();
   }
 
-  getAll(): Observable<Array<Articles>> {
-    return this.http.get<Array<Articles>>(this.url);
+  getAll(): Observable<Array<Items>> {
+    return this.http.get<Array<Items>>(this.url);
   }
 
   getArticles(){
     this.http.get<any>('http://localhost:5555/Articles/').subscribe(
       response => {
         console.log(response);
-        this.article = response;
+        this.item = response;
       }
     );
   }
