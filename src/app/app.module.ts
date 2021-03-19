@@ -11,6 +11,8 @@ import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/p
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { AuthentificationGuard } from './guards/authentification.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthentificationGuard,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
