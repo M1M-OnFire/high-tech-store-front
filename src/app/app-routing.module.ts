@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CategorieComponent } from './components/categorie/categorie.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { HomeComponent } from './components/home/home.component';
 import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/pc-accessoires.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path:"connexion", component: ConnexionComponent, canActivate: [NoAuthentificationGuard]},
   {path:"panier", component: PanierComponent},
   {path:"produit-detail/:id", component: ProduitDetailComponent, canActivate: [NoAuthentificationGuard]},
+  {path:"categories/:id", component: CategorieComponent, canActivate: [NoAuthentificationGuard]},
 ];
 
 @NgModule({

@@ -14,6 +14,38 @@
         "photo":"https://img-19.ccm2.net/8vUCl8TXZfwTt7zAOkBkuDRHiT8=/1240x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg",
         "id": 2,
         "prix" : "1900"
+    },
+    {
+        "libelle": "Un autre pc portable",
+        "marque": "Asus",
+        "description": "PC Portable",
+        "photo":"https://img-19.ccm2.net/8vUCl8TXZfwTt7zAOkBkuDRHiT8=/1240x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg",
+        "id": 3,
+        "prix" : "1900"
+    },
+    {
+        "libelle": "Un autre pc portable",
+        "marque": "Asus",
+        "description": "PC Portable",
+        "photo":"https://img-19.ccm2.net/8vUCl8TXZfwTt7zAOkBkuDRHiT8=/1240x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg",
+        "id": 4,
+        "prix" : "1900"
+    },
+    {
+        "libelle": "Un autre pc portable",
+        "marque": "Asus",
+        "description": "PC Portable",
+        "photo":"https://img-19.ccm2.net/8vUCl8TXZfwTt7zAOkBkuDRHiT8=/1240x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg",
+        "id": 5,
+        "prix" : "1900"
+    },
+    {
+        "libelle": "Un autre pc portable",
+        "marque": "Asus",
+        "description": "PC Portable",
+        "photo":"https://img-19.ccm2.net/8vUCl8TXZfwTt7zAOkBkuDRHiT8=/1240x/smart/b829396acc244fd484c5ddcdcb2b08f3/ccmcms-commentcamarche/20494859.jpg",
+        "id": 6,
+        "prix" : "1900"
     }
 ]
 }

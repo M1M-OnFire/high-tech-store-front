@@ -15,6 +15,7 @@ import { PanierComponent } from './components/panier/panier.component';
 import { ProduitComponent } from './components/produit/produit.component';
 import { ProduitDetailComponent } from './components/produit-detail/produit-detail.component';
 import { ContenuComponent } from './contenu/contenu.component';
+import { CategorieComponent } from './components/categorie/categorie.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ContenuComponent } from './contenu/contenu.component';
     PanierComponent,
     ProduitComponent,
     ProduitDetailComponent,
-    ContenuComponent
+    ContenuComponent,
+    CategorieComponent
+
   ],
   imports: [
     BrowserModule,
