@@ -8,6 +8,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './services/auth.service';
+import { AuthentificationGuard } from './guards/authentification.guard';
 import { PanierComponent } from './components/panier/panier.component';
 import { ProduitComponent } from './components/produit-card/produit.component';
 import { ProduitDetailComponent } from './components/produit-detail/produit-detail.component';
@@ -47,7 +49,7 @@ import { CategorieComponent } from './components/categorie/categorie.component';
     Ng2OrderModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [AuthentificationGuard,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
