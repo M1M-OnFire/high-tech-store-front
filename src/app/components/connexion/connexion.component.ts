@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-connexion',
@@ -7,16 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConnexionComponent implements OnInit {
 
-  messageError: string = "";
+  loginForm!: FormGroup;
+  isSubmitted  =  false;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private sa: AuthService , private route: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder ) {
   }
 
-  connexion(connexionForm: any){
-    let data = connexionForm.value;
-    console.log(data);
+  get formControls() { return this.loginForm.controls; }
+
+  ngOnInit() {
+    this.loginForm  =  this.formBuilder.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
+    });
   }
 
+  deconnexion() {
+    this.sa.logoutUser();
+  }
+
+  connexion(){
+    this.isSubmitted = true;
+    if(this.loginForm.invalid){
+      console.log('invalid');
+      return;
+    }
+    this.sa.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
+    this.route.navigateByUrl('/home');
+  }
 }
