@@ -40,8 +40,8 @@ export class FormComponent implements OnInit{
   ngOnInit(): void {
     this.getItems();
     this.editForm = this.fb.group({
+      id: [''],
       categorieId: [''],
-      categorieName: [''],
       marque: [''],
       libelle: [''],
       prix: [''],
@@ -110,7 +110,6 @@ export class FormComponent implements OnInit{
       size: 'lg'
     });
     this.editForm.patchValue( {
-      categorieName: item.categorieName,
       categorieId: item.categorieId,
       marque: item.marque,
       libelle: item.libelle,

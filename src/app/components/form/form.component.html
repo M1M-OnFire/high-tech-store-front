@@ -12,20 +12,25 @@
     <thead>
 
     <tr>
+      <th (click)="sort('id')"> Id&nbsp; <i class="fa fa-sort"></i></th>
       <th (click)="sort('categorieId')"> categorieId&nbsp; <i class="fa fa-sort"></i></th>
       <th (click)="sort('categorieName')"> categorieName&nbsp; <i class="fa fa-sort"></i></th>
       <th (click)="sort('Marque')">Marque&nbsp;<i class="fa fa-sort"></i></th>
       <th (click)="sort('Libelle')">Libelle&nbsp;<i class="fa fa-sort"></i></th>
       <th (click)="sort('prix')"> Prix&nbsp; <i class="fa fa-sort"></i></th>
-     </tr>
+      <th (click)="sort('photo')"> Photo&nbsp; <i class="fa fa-sort"></i></th>
+
+    </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of item | orderBy: key: reverse |paginate :{itemsPerPage: 5, currentPage:p};">
+      <td><span>{{item.id}}</span></td>
       <td><span>{{item.categorieId}}</span></td>
       <td><span>{{item.categorieName}}</span></td>
       <td><span>{{item.marque}}</span></td>
       <td><span>{{item.libelle}}</span></td>
       <td><span>{{item.prix}}</span></td>
+      <td><span>{{item.photo}}</span></td>
        <td>
         <button class="btn btn-sm btn-info"(click)="openDetails(contentDetails, item)">
           <i class="fa fa-search"></i>Details</button>
@@ -50,12 +55,6 @@
   <div class="modal-body">
     <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <label for="categorieName">categorieName</label>
-        <div class="input-group">
-          <input id="categorieName" name="categorieName" class="form-control" >
-        </div>
-      </div>
-      <div class="form-group">
         <label for="categorieId">categorieId</label>
         <div class="input-group">
           <input id="categorieId" name="categorieId" class="form-control" >
@@ -68,15 +67,27 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="libelle">Description</label>
+        <label for="prix">prix</label>
+        <div class="input-group">
+          <input id="prix" name="prix" class="form-control" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="libelle">Libelle</label>
         <div class="input-group">
           <input id="libelle" name="libelle" class="form-control" >
         </div>
       </div>
       <div class="form-group">
-        <label for="Prix">Prix</label>
+        <label for="photo">photo</label>
         <div class="input-group">
-          <input id="prix" name="prix" class="form-control" >
+          <input id="photo" name="photo" class="form-control" >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <div class="input-group">
+          <input id="description" name="description" class="form-control" >
         </div>
       </div>
       <div class="border text-center">
@@ -146,15 +157,9 @@
   <div class="modal-body">
       <form [formGroup]="editForm" novalidate>
         <div class="form-group">
-          <label for="categorieId">categorie Id</label>
+          <label for="id">id</label>
           <div class="input-group">
-            <input formControlName="categorieId" class="form-control" >
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="categorieName">categorie Name</label>
-          <div class="input-group">
-            <input formControlName="marque" class="form-control" >
+            <input id="id" name="id" class="form-control" >
           </div>
         </div>
         <div class="form-group">
@@ -164,15 +169,27 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="prix">Prix</label>
+          <div class="input-group">
+            <input formControlName="prix" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
           <label for="libelle">Description</label>
           <div class="input-group">
             <input formControlName="libelle" class="form-control" >
           </div>
         </div>
         <div class="form-group">
-          <label for="prix">Prix</label>
+          <label for="libelle">Libelle</label>
           <div class="input-group">
-            <input formControlName="prix" class="form-control" >
+            <input formControlName="libelle" class="form-control" >
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="photo">Photo</label>
+          <div class="input-group">
+            <input formControlName="photo" class="form-control" >
           </div>
         </div>
         <div class="border text-center"> <button data-dismiss="modal" class="btn btn-info" (click)="onSave()">Save</button> </div>
