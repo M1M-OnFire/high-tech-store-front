@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import { Pipe, PipeTransform } from '@angular/core';
 import {Categories} from '../../models/Categories';
 
-export  class Item {
+class Item {
   constructor(
     public categorieId: number,
     public categorieName: string,
@@ -45,7 +45,6 @@ export class FormComponent implements OnInit{
     console.log(this.categories);
     this.editForm = this.fb.group({
       id: [''],
-      categorieId: [''],
       marque: [''],
       libelle: [''],
       prix: [''],
@@ -129,16 +128,16 @@ getCategorie(){
       size: 'lg'
     });
     this.editForm.patchValue( {
-      categorieId: item.categorieId,
-      marque: item.marque,
+      id: item.id,
       libelle: item.libelle,
+      marque: item.marque,
       prix: item.prix,
-      descrition: item.description,
+      description: item.description,
       photo: item.photo
     });
   }
-  onSave() {
-    const editURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items' + this.editForm.value.id;
+  onSave() {    
+    const editURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items';
     this.http.put(editURL, this.editForm.value)
       .subscribe((results) => {
         this.ngOnInit();
