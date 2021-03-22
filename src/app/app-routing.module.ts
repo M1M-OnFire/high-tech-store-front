@@ -10,13 +10,13 @@ import { NoAuthentificationGuard } from './guards/no-authentification.guard';
 import {FormComponent} from './components/form/form.component';
 
 const routes: Routes = [
-  {path:"", component: ConnexionComponent, canActivate:[NoAuthentificationGuard]},
-  {path:"home", component: HomeComponent, canActivate:[AuthentificationGuard]},
+  {path:"", component: HomeComponent, canActivate:[NoAuthentificationGuard]},
+  {path:"home", component: HomeComponent, canActivate:[NoAuthentificationGuard]},
   {path:"connexion", component: ConnexionComponent, canActivate: [NoAuthentificationGuard]},
   {path:"panier", component: PanierComponent},
   {path:"produit-detail/:id", component: ProduitDetailComponent, canActivate: [NoAuthentificationGuard]},
   {path:"categories/:id", component: CategorieComponent, canActivate: [NoAuthentificationGuard]},
-  {path:"form", component: FormComponent, canActivate: [NoAuthentificationGuard]},
+  {path:"form", component: FormComponent, canActivate: [AuthentificationGuard]},
 ];
 
 @NgModule({
