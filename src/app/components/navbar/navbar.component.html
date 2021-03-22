@@ -40,12 +40,12 @@
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/form">Formulaire </a>
+        <a class="nav-link" *ngIf="authService.isUserLoggedIn()" routerLink="/form">Espace admin </a>
       </li>
     </ul>
 
-    <a class="btn btn-outline-success my-2 my-sm-0" routerLink="/connexion">Connexion</a>
-    <a class="btn btn-outline-danger my-2 my-sm-0" routerLink="" (click)="logout()">Deconnexion</a>
+    <a class="btn btn-outline-success my-2 my-sm-0" *ngIf="!authService.isUserLoggedIn()" routerLink="/connexion">Connexion</a>
+    <a class="btn btn-outline-danger my-2 my-sm-0" *ngIf="authService.isUserLoggedIn()" routerLink="" (click)="logout()">Deconnexion</a>
   </div>
 </nav>
 
