@@ -50,7 +50,7 @@ import { CategorieComponent } from './components/categorie/categorie.component';
     Ng2OrderModule,
     NgxPaginationModule
   ],
-  providers: [AuthentificationGuard,AuthService],
+  providers: [AuthentificationGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

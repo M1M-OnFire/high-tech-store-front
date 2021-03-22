@@ -3,8 +3,9 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Items} from '../../models/Items';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import { Pipe, PipeTransform } from '@angular/core';
+import {Categories} from '../../models/Categories';
 
 export  class Item {
   constructor(
@@ -25,8 +26,7 @@ export  class Item {
 })
 
 export class FormComponent implements OnInit{
-
-
+  categories: Categories;
   constructor( private http: HttpClient, private modalService: NgbModal, private fb: FormBuilder) { }
   item: Item[];
   closeResult: string;
@@ -37,8 +37,11 @@ export class FormComponent implements OnInit{
   key:string = 'prix';
   reverse:boolean = false;
   p: number=1;
+  categorie: any;
   ngOnInit(): void {
     this.getItems();
+    this.getCategorie();
+    console.log(this.categories);
     this.editForm = this.fb.group({
       id: [''],
       categorieId: [''],
@@ -48,7 +51,6 @@ export class FormComponent implements OnInit{
       photo: [''],
       description: ['']
     });
-
   }
 
   getAll(): Observable<Array<Items>> {
@@ -63,7 +65,14 @@ export class FormComponent implements OnInit{
       }
     );
   }
-
+getCategorie(){
+    this.http.get<any>('http://localhost:8080/rest_shop_war_exploded/rest/categories/').subscribe(
+      response => {
+        console.log(response);
+        this.categories = response;
+      }
+    );
+}
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
