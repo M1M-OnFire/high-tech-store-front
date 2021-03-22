@@ -6,7 +6,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
 import { Pipe, PipeTransform } from '@angular/core';
 
-export  class Item {
+class Item {
   constructor(
     public categorieId: number,
     public categorieName: string,
@@ -40,8 +40,7 @@ export class FormComponent implements OnInit{
   ngOnInit(): void {
     this.getItems();
     this.editForm = this.fb.group({
-      categorieId: [''],
-      categorieName: [''],
+      id: [''],
       marque: [''],
       libelle: [''],
       prix: [''],
@@ -110,17 +109,18 @@ export class FormComponent implements OnInit{
       size: 'lg'
     });
     this.editForm.patchValue( {
-      categorieName: item.categorieName,
-      categorieId: item.categorieId,
-      marque: item.marque,
+      id: item.id,
       libelle: item.libelle,
+      marque: item.marque,
       prix: item.prix,
-      descrition: item.description,
+      description: item.description,
       photo: item.photo
     });
   }
   onSave() {
-    const editURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items' + this.editForm.value.id;
+    console.log(this.editForm.value);
+    
+    const editURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items';
     this.http.put(editURL, this.editForm.value)
       .subscribe((results) => {
         this.ngOnInit();

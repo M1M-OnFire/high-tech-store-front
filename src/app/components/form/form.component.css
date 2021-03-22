@@ -10,3 +10,7 @@
 table .btn{
   margin: 2px;
 }
+
+img{
+  max-width: 5em;
+}
