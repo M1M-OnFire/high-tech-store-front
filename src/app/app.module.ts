@@ -6,11 +6,18 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PanierComponent } from './components/panier/panier.component';
 import { ProduitComponent } from './components/produit-card/produit.component';
 import { ProduitDetailComponent } from './components/produit-detail/produit-detail.component';
+import { FormComponent } from './components/form/form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './components/footer/footer.component';
+import { FilterPipe } from './components/filter.pipe';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {Ng2OrderModule} from 'ng2-order-pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { ContenuComponent } from './contenu/contenu.component';
 import { CategorieComponent } from './components/categorie/categorie.component';
 
@@ -24,14 +31,21 @@ import { CategorieComponent } from './components/categorie/categorie.component';
     ProduitComponent,
     ProduitDetailComponent,
     ContenuComponent,
-    CategorieComponent
-
+    CategorieComponent,
+    FormComponent,
+    FooterComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

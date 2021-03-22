@@ -7,6 +7,7 @@ import { PanierComponent } from './components/panier/panier.component';
 import { ProduitDetailComponent } from './components/produit-detail/produit-detail.component';
 import { AuthentificationGuard } from './guards/authentification.guard';
 import { NoAuthentificationGuard } from './guards/no-authentification.guard';
+import {FormComponent} from './components/form/form.component';
 
 const routes: Routes = [
   {path:"", component: ConnexionComponent, canActivate:[NoAuthentificationGuard]},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"panier", component: PanierComponent},
   {path:"produit-detail/:id", component: ProduitDetailComponent, canActivate: [NoAuthentificationGuard]},
   {path:"categories/:id", component: CategorieComponent, canActivate: [NoAuthentificationGuard]},
+  {path:"form", component: FormComponent, canActivate: [NoAuthentificationGuard]},
 ];
 
 @NgModule({
