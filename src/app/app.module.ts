@@ -18,6 +18,7 @@ import { FilterPipe } from './components/filter.pipe';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {Ng2OrderModule} from 'ng2-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ContenuComponent } from './contenu/contenu.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FormComponent,
     FooterComponent,
     FilterPipe,
+    ContenuComponent
   ],
   imports: [
     BrowserModule,
