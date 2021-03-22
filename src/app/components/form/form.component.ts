@@ -117,9 +117,7 @@ export class FormComponent implements OnInit{
       photo: item.photo
     });
   }
-  onSave() {
-    console.log(this.editForm.value);
-    
+  onSave() {    
     const editURL = 'http://localhost:8080/rest_shop_war_exploded/rest/items';
     this.http.put(editURL, this.editForm.value)
       .subscribe((results) => {
