@@ -1,32 +1,33 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs/internal/observable/of';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private isloggedIn: boolean;
-  private userName:string;
+  private user:User;
+  private url = 'http://localhost:8080/rest_shop_war_exploded/rest/connexion'
 
-  constructor() {
+  constructor(private http: HttpClient) {
       this.isloggedIn=false;
   }
 
   login(username: string, password: string) {
-    //TODO: mettre le back à la place 
-
-    this.isloggedIn=true;
-    this.userName=username;
+    this.http.post<User>(this.url, {username, password}).subscribe(
+      user =>{
+        if(user) {
+          user = this.user;
+          this.isloggedIn=true;
+        }
+    });
     return of(this.isloggedIn);
   }
 
   isUserLoggedIn(): boolean {
     return this.isloggedIn;
-  }
-
-  isAdminUser():boolean {
-    //TODO
-    return false;
   }
 
   logoutUser(): void{

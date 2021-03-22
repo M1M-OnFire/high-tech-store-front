@@ -13,7 +13,7 @@ export class ConnexionComponent implements OnInit {
   username:string;
   password:string;
   isLoggedIn: boolean = false;
-  retUrl:string="home";
+  retUrl:string="/home";
 
   constructor(private sa: AuthService , private route: Router, private activatedRoute: ActivatedRoute ) {
   }
@@ -34,15 +34,14 @@ export class ConnexionComponent implements OnInit {
     let data = connexionForm.value;
     console.log(data);
 
-    this.sa.login(data.email, data.pass).toPromise()
-    .then(() => {
+    if(this.sa.login(data.email, data.pass)) {
       console.log("done");
       this.isLoggedIn = true;
-      this.route.navigate(['/home'])
-    })
-    .catch( () => {
+      this.route.navigate(['/home']);;
+    }
+    else {
       console.log("error");
       this.messageError = "Erreur lors de la connexion";
-    })
+    }
   }
 }
