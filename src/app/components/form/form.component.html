@@ -53,7 +53,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+    <form #f="ngForm" [formGroup]="addForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
         <div class="input-group">
           <select formControlName="categorieId">
@@ -65,31 +65,31 @@
       <div class="form-group">
         <label for="marque">Marque</label>
         <div class="input-group">
-          <input id="marque" name="marque" class="form-control" >
+          <input id="marque" name="marque" formControlName="marque" class="form-control" >
         </div>
       </div>
       <div class="form-group">
         <label for="prix">prix</label>
         <div class="input-group">
-          <input id="prix" name="prix" class="form-control" >
+          <input id="prix" name="prix" formControlName="prix" class="form-control" >
         </div>
       </div>
       <div class="form-group">
         <label for="libelle">Libelle</label>
         <div class="input-group">
-          <input id="libelle" name="libelle" class="form-control" >
+          <input id="libelle" name="libelle" formControlName="libelle" class="form-control" >
         </div>
       </div>
       <div class="form-group">
         <label for="photo">photo</label>
         <div class="input-group">
-          <input id="photo" name="photo" class="form-control" >
+          <input id="photo" name="photo" formControlName="photo" class="form-control" >
         </div>
       </div>
       <div class="form-group">
         <label for="description">Description</label>
         <div class="input-group">
-          <input id="description" name="description" class="form-control" >
+          <input id="description" name="description" formControlName="description" class="form-control" >
         </div>
       </div>
       <div class="border text-center">

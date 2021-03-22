@@ -33,6 +33,7 @@ export class FormComponent implements OnInit{
   marque: any;
   url = 'http://localhost:8080/rest_shop_war_exploded/rest/items/';
   editForm: FormGroup;
+  addForm: FormGroup;
   private deleteId: number;
   key:string = 'prix';
   reverse:boolean = false;
@@ -44,6 +45,15 @@ export class FormComponent implements OnInit{
     console.log(this.categories);
     this.editForm = this.fb.group({
       id: [''],
+      categorieId: [''],
+      marque: [''],
+      libelle: [''],
+      prix: [''],
+      photo: [''],
+      description: ['']
+    });
+
+    this.addForm = this.fb.group({
       categorieId: [''],
       marque: [''],
       libelle: [''],
