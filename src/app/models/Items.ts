@@ -4,4 +4,5 @@ export interface Items {
     libelle?: string;
     prix?: number;
     photo?: string;
+    description?: string;
 }

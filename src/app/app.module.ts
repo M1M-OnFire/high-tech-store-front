@@ -37,6 +37,7 @@ import { CategorieComponent } from './components/categorie/categorie.component';
     FormComponent,
     FooterComponent,
     FilterPipe,
+    ContenuComponent,
   ],
   imports: [
     BrowserModule,
