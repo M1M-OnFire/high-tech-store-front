@@ -7,30 +7,28 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthService {
-  private isloggedIn: boolean;
   private user:User;
   private url = 'http://localhost:8080/rest_shop_war_exploded/rest/connexion'
 
   constructor(private http: HttpClient) {
-      this.isloggedIn=false;
   }
 
   login(username: string, password: string) {
     this.http.post<User>(this.url, {username, password}).subscribe(
       user =>{
         if(user) {
+          console.log(user);
           user = this.user;
-          this.isloggedIn=true;
+          localStorage.setItem('ACCESS_TOKEN', "access_token");
         }
     });
-    return of(this.isloggedIn);
   }
 
   isUserLoggedIn(): boolean {
-    return this.isloggedIn;
+    return localStorage.getItem('ACCESS_TOKEN') !== null;
   }
 
   logoutUser(): void{
-    this.isloggedIn = false;
+    localStorage.removeItem('ACCESS_TOKEN');
   }
 }

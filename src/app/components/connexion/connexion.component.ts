@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -9,39 +10,32 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ConnexionComponent implements OnInit {
 
-  messageError: string = "";
-  username:string;
-  password:string;
-  isLoggedIn: boolean = false;
-  retUrl:string="/home";
+  loginForm!: FormGroup;
+  isSubmitted  =  false;
 
-  constructor(private sa: AuthService , private route: Router, private activatedRoute: ActivatedRoute ) {
+  constructor(private sa: AuthService , private route: Router, private activatedRoute: ActivatedRoute, private formBuilder: FormBuilder ) {
   }
 
+  get formControls() { return this.loginForm.controls; }
+
   ngOnInit() {
-    this.activatedRoute.queryParamMap.subscribe(params => {
-        this.retUrl = params.get('retUrl'); 
-        console.log( 'LoginComponent/ngOnInit '+ this.retUrl);
+    this.loginForm  =  this.formBuilder.group({
+        email: ['', Validators.required],
+        password: ['', Validators.required]
     });
-}
+  }
 
   deconnexion() {
     this.sa.logoutUser();
-    this.isLoggedIn = false;
   }
 
-  connexion(connexionForm: any){
-    let data = connexionForm.value;
-    console.log(data);
-
-    if(this.sa.login(data.email, data.pass)) {
-      console.log("done");
-      this.isLoggedIn = true;
-      this.route.navigate(['/home']);;
+  connexion(){
+    this.isSubmitted = true;
+    if(this.loginForm.invalid){
+      console.log('invalid');
+      return;
     }
-    else {
-      console.log("error");
-      this.messageError = "Erreur lors de la connexion";
-    }
+    this.sa.login(this.loginForm.get('email').value, this.loginForm.get('password').value);
+    this.route.navigateByUrl('/home');
   }
 }
