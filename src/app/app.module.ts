@@ -32,7 +32,7 @@ import { ContenuComponent } from './contenu/contenu.component';
     FormComponent,
     FooterComponent,
     FilterPipe,
-    ContenuComponent
+    ContenuComponent,
   ],
   imports: [
     BrowserModule,
