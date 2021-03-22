@@ -8,11 +8,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export  class Item {
   constructor(
+    public categorieId: number,
+    public categorieName: string,
     public id: number,
     public marque: string,
     public libelle: string,
     public prix: number,
-    public photo: string
+    public photo: string,
+    public description: string
   ) {}
 }
 @Component({
@@ -37,9 +40,13 @@ export class FormComponent implements OnInit{
   ngOnInit(): void {
     this.getItems();
     this.editForm = this.fb.group({
+      categorieId: [''],
+      categorieName: [''],
       marque: [''],
       libelle: [''],
-      prix: ['']
+      prix: [''],
+      photo: [''],
+      description: ['']
     });
 
   }
@@ -88,9 +95,13 @@ export class FormComponent implements OnInit{
       backdrop: 'static',
       size: 'lg'
     });
+    document.getElementById('acategorieName').setAttribute('value', item.categorieName);
+    document.getElementById('acategorieId').setAttribute('value', String(item.categorieId));
     document.getElementById('amarque').setAttribute('value', item.marque);
     document.getElementById('dlibelle').setAttribute('value', item.libelle);
     document.getElementById('pprix').setAttribute('value', String(item.prix));
+    document.getElementById('aphoto').setAttribute('value', item.photo);
+    document.getElementById('adescription').setAttribute('value', item.description);
   }
   openEdit(targetModal, item: Item) {
     this.modalService.open(targetModal, {
@@ -99,9 +110,13 @@ export class FormComponent implements OnInit{
       size: 'lg'
     });
     this.editForm.patchValue( {
+      categorieName: item.categorieName,
+      categorieId: item.categorieId,
       marque: item.marque,
       libelle: item.libelle,
-      prix: item.prix
+      prix: item.prix,
+      descrition: item.description,
+      photo: item.photo
     });
   }
   onSave() {
