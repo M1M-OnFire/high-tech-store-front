@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PcBureauComponent } from './pc-bureau.component';
+import { ProduitDetailComponent } from './produit-detail.component';
 
-describe('PcBureauComponent', () => {
-  let component: PcBureauComponent;
-  let fixture: ComponentFixture<PcBureauComponent>;
+describe('ProduitDetailComponent', () => {
+  let component: ProduitDetailComponent;
+  let fixture: ComponentFixture<ProduitDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PcBureauComponent ]
+      declarations: [ ProduitDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PcBureauComponent);
+    fixture = TestBed.createComponent(ProduitDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
