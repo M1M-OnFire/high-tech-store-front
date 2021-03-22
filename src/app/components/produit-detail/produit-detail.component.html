@@ -5,13 +5,13 @@
     </div>
     <div>
         <div>
-            <span>Description : {{article.description}}</span>
+            <span class="font-weight-bold">Marque : {{article.marque}}</span>
         </div>
         <div>
-            <span>Marque : {{article.marque}}</span>
+            <span class="font-weight-bold">Prix : {{article.prix}}€</span>
         </div>
-        <div>
-            <span>Prix : {{article.prix}}€</span>
+        <div class="mt-3" *ngIf="article.description">
+            <span class="font-weight-bold">Description : {{article.description}} </span>
         </div>
     </div>
 </div>

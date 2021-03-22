@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Articles } from 'src/app/models/Articles';
-import { OrdinateursService } from 'src/app/services/ordinateurs.service';
+import { ProduitService } from 'src/app/services/produits/produit.service';
 
 @Component({
   selector: 'app-produit-detail',
@@ -14,7 +14,7 @@ export class ProduitDetailComponent implements OnInit {
 
   constructor(
       private route: ActivatedRoute,
-      private ordinateurService: OrdinateursService
+      private produitService: ProduitService
     ) { }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class ProduitDetailComponent implements OnInit {
 
   getArticle(){
     const id = this.route.snapshot.paramMap.get('id');
-    this.ordinateurService.get(id).subscribe(res => {
+    this.produitService.get(id).subscribe(res => {
       this.article = res;
       console.log(this.article);
       

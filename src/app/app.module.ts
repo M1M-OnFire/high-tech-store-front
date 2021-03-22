@@ -5,14 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { PcPortableComponent } from './components/ordinateur/pc-portable/pc-portable.component';
-import { PcBureauComponent } from './components/ordinateur/pc-bureau/pc-bureau.component';
-import { PcAccessoiresComponent } from './components/ordinateur/pc-accessoires/pc-accessoires.component';
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PanierComponent } from './components/panier/panier.component';
-import { ProduitComponent } from './components/produit/produit.component';
+import { ProduitComponent } from './components/produit-card/produit.component';
 import { ProduitDetailComponent } from './components/produit-detail/produit-detail.component';
 import { ContenuComponent } from './contenu/contenu.component';
 import { CategorieComponent } from './components/categorie/categorie.component';
@@ -22,9 +19,6 @@ import { CategorieComponent } from './components/categorie/categorie.component';
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    PcPortableComponent,
-    PcBureauComponent,
-    PcAccessoiresComponent,
     ConnexionComponent,
     PanierComponent,
     ProduitComponent,

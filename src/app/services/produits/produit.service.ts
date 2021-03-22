@@ -13,8 +13,7 @@ export class ProduitService {
 
 
   get(id: string): Observable<Articles> {
-    url = environment.baseUrl + ""
-    return this.http.get<Articles>(this.url + "/" + id);
+    var url = environment.baseUrl + "/rest/items/" + id
+    return this.http.get<Articles>(url);
   }
-
 }
