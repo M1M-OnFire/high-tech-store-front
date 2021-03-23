@@ -12,20 +12,17 @@
     <thead>
 
     <tr>
-      <th (click)="sort('id')"> Id&nbsp; <i class="fa fa-sort"></i></th>
-      <th (click)="sort('categorieId')"> categorieId&nbsp; <i class="fa fa-sort"></i></th>
       <th (click)="sort('categorieName')"> categorieName&nbsp; <i class="fa fa-sort"></i></th>
       <th (click)="sort('Marque')">Marque&nbsp;<i class="fa fa-sort"></i></th>
       <th (click)="sort('Libelle')">Libelle&nbsp;<i class="fa fa-sort"></i></th>
       <th (click)="sort('prix')"> Prix&nbsp; <i class="fa fa-sort"></i></th>
       <th (click)="sort('photo')"> Photo&nbsp; <i class="fa fa-sort"></i></th>
+      <th> Actions&nbsp;</th>
 
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of item | orderBy: key: reverse |paginate :{itemsPerPage: 5, currentPage:p};">
-      <td><span>{{item.id}}</span></td>
-      <td><span>{{item.categorieId}}</span></td>
       <td><span>{{item.categorieName}}</span></td>
       <td><span>{{item.marque}}</span></td>
       <td><span>{{item.libelle}}</span></td>
